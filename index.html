@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вычисление трафика Интернета</title>
+    <script type="text/javascript">
+        function calculateTraffic() {
+            var inputTraffic = parseFloat(document.form1.traffic.value);
+            if (isNaN(inputTraffic) || inputTraffic <= 0) {
+                document.form1.result.value = "";  // Очищаем поле результата, если введено неверное значение
+            } else {
+                // Преобразование трафика (например, добавляем 10% к введенному значению)
+                var calculatedTraffic = inputTraffic * 1.1;  // Пример преобразования
+                document.form1.result.value = calculatedTraffic.toFixed(2);  // Выводим результат с двумя знаками после запятой
+            }
+        }
+    </script>
+</head>
+<body>
+    <h4>Вычисление трафика Интернета</h4>
+    <form name="form1">
+        <label for="traffic">Введите трафик (в Кб):</label>
+        <input type="text" name="traffic" size="10" onblur="calculateTraffic()"><br><br>
+
+        <label for="result">Рассчитанный трафик (в Кб):</label>
+        <input type="text" name="result" size="10" readonly><br><br>
+
+        <input type="reset" value="Сбросить">
+    </form>
+</body>
+</html>
